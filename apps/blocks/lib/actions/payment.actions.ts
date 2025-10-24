@@ -33,8 +33,12 @@ const resend = process.env.RESEND_API_KEY
     : null;
 
 const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID!,
-    key_secret: process.env.RAZORPAY_SECRET_ID!,
+    key_id: process.env.RAZORPAY_KEY_ID
+        ? process.env.RAZORPAY_KEY_ID
+        : undefined,
+    key_secret: process.env.RAZORPAY_SECRET_ID
+        ? process.env.RAZORPAY_SECRET_ID
+        : undefined,
 });
 
 export async function createPayment(
@@ -129,9 +133,13 @@ export async function verifyPayment(
             return { error: "Missing payment verification details" };
         }
 
+        const ID = process.env.RAZORPAY_SECRET_ID
+            ? process.env.RAZORPAY_SECRET_ID
+            : undefined;
+
         const body = razorpay_order_id + "|" + razorpay_payment_id;
         const expectedSignature = crypto
-            .createHmac("sha256", process.env.RAZORPAY_SECRET_ID!)
+            .createHmac("sha256", ID as string)
             .update(body.toString())
             .digest("hex");
 
