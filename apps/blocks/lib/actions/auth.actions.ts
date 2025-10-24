@@ -12,7 +12,9 @@ import { render } from "@react-email/components";
 import { SignInEmail } from "@/components/emails/sign-in";
 import { headers } from "next/headers";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
 
 type User = {
   id: string;
@@ -214,7 +216,7 @@ export async function sendResetEmail(email: string) {
         ResetPasswordEmail({ userEmail: user.email!, resetLink })
       );
 
-      await resend.emails.send({
+      await resend?.emails.send({
         from: "Cnippet <system@cnippet.dev>",
         to: email,
         subject: "Password Reset Request",
@@ -265,7 +267,7 @@ export async function sendSignInAlertEmail({
       })
     );
 
-    await resend.emails.send({
+    await resend?.emails.send({
       from: "Cnippet <notifications@cnippet.dev>",
       to: email,
       subject: "New sign-in detected on your Cnippet account",
