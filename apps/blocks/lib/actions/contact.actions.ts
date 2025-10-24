@@ -8,7 +8,9 @@ import { Resend } from "resend";
 import { render } from "@react-email/components";
 import { ContactNotificationEmail } from "@/components/emails/contact-notification";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
 
 type ContactResult = {
     success?: boolean;
@@ -50,7 +52,7 @@ export async function submitContactForm(
                     })
                 );
 
-                await resend.emails.send({
+                await resend?.emails.send({
                     from: process.env.FROM_EMAIL || "onboarding@resend.dev",
                     to: adminEmail,
                     subject: `New Contact Form Submission: ${validatedData.subject}`,

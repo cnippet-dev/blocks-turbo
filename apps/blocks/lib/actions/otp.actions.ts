@@ -5,7 +5,10 @@ import { render } from "@react-email/render";
 import { OTPEmail } from "@/components/emails/otp-email";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
+    
 const MAX_ATTEMPTS = 5;
 const OTP_EXPIRATION_MINUTES = 10;
 
@@ -45,18 +48,17 @@ export async function sendOTP(email: string) {
         const otp = generateOTP();
         await storeOTP(email, otp);
 
-        const emailHtml = render(OTPEmail({ userEmail: email, otp }));
-        const { error } = await resend.emails.send({
+        if (!resend) {
+            return { error: "Email service is not configured. Please set RESEND_API_KEY environment variable." };
+        }
+
+        const emailHtml = await render(OTPEmail({ userEmail: email, otp }));
+        await resend.emails.send({
             from: "Cnippet <system@cnippet.dev>",
             to: email,
             subject: `${otp} - Cnippet Sign-in Verification`,
-            html: await emailHtml,
+            html: emailHtml,
         });
-
-        if (error) {
-            console.error("Resend Error:", error);
-            return { error: "Failed to send OTP email. Please try again." };
-        }
 
         return { success: true };
     } catch (error) {

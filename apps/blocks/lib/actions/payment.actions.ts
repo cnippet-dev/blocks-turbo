@@ -28,7 +28,9 @@ interface VerificationResult {
     error?: string;
 }
 
-const resend: Resend = new Resend(process.env.RESEND_API_KEY as string);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
 
 const razorpay = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID!,
@@ -249,7 +251,7 @@ export async function verifyPayment(
         });
 
         if (user?.email) {
-            await resend.emails.send({
+            await resend?.emails.send({
                 from: "subscription@yourapp.com",
                 to: user.email,
                 subject: "Subscription Confirmation",

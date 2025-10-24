@@ -6,7 +6,9 @@ import { prisma } from "@repo/db";
 
 import NewsletterWelcomeEmail from "@/components/emails/newsletter-welcome";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
 
 export const Newsletter = async ({ email }: { email: string }) => {
     try {
@@ -38,7 +40,7 @@ export const Newsletter = async ({ email }: { email: string }) => {
                 NewsletterWelcomeEmail({ userEmail: email }),
             );
 
-            await resend.emails.send({
+            await resend?.emails.send({
                 from: "Cnippet <newsletter@cnippet.dev>",
                 to: email,
                 subject: "Welcome to Cnippet Newsletter! 🎉",
