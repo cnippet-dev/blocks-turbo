@@ -32,14 +32,12 @@ const resend = process.env.RESEND_API_KEY
     ? new Resend(process.env.RESEND_API_KEY)
     : null;
 
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID
-        ? process.env.RAZORPAY_KEY_ID
-        : undefined,
-    key_secret: process.env.RAZORPAY_SECRET_ID
-        ? process.env.RAZORPAY_SECRET_ID
-        : undefined,
-});
+const razorpay = process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_SECRET_ID
+    ? new Razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_SECRET_ID,
+    })
+    : null;
 
 export async function createPayment(
     paymentData: PaymentData,
@@ -67,6 +65,10 @@ export async function createPayment(
                 duration: duration.toString(),
             },
         };
+
+        if (!razorpay) {
+            return { error: "Payment service not configured. Please contact support." };
+        }
 
         try {
             const order = await razorpay.orders.create(options);
@@ -163,6 +165,10 @@ export async function verifyPayment(
         if (!payment) {
             console.error("[PAYMENT_VERIFY] Payment record not found in DB.");
             return { error: "Payment record not found." };
+        }
+
+        if (!razorpay) {
+            return { error: "Payment service not configured. Please contact support." };
         }
 
         const razorpayPaymentDetails =
