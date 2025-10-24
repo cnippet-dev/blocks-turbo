@@ -9,12 +9,16 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:seed": "tsx src/seed.ts",
-    "dev": "tsup src/* --watch",
+    "db:generate": "prisma generate",
+    "db:generate:prod": "prisma generate --no-engine",
     "format": "prisma format",
     "generate": "prisma generate",
+    "generate:prod": "prisma generate --no-engine",
     "lint": "eslint . --max-warnings 0",
-    "prebuild": "npm run generate",
+    "prebuild": "npm run generate:prod",
     "predev": "npm run generate",
+    "dev:generate": "prisma generate --no-engine",
+    "postinstall": "prisma generate",
     "studio": "prisma studio"
   },
   "dependencies": {
@@ -23,7 +27,7 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "eslint": "^8.57.0",
+    "eslint": "^9",
     "prisma": "latest",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
