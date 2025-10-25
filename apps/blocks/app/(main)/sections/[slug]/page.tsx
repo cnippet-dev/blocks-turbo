@@ -1,7 +1,22 @@
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
+import { HomeIcon } from "lucide-react";
 
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { DashedBorderWithTopDots } from "@/components/dashed-layout";
+import Link from "next/link";
+
+import { BASE_URL } from "@/config/docs";
+import { allSections } from "@/.content-collections/generated";
 import { getSectionsData } from "@/hooks/use-sections-data";
+import type { Metadata, ResolvingMetadata } from "next";
 
 const MdxRenderer = dynamic(
     () =>
@@ -28,24 +43,9 @@ export async function generateStaticParams() {
     }));
 }
 
-async function getComponentDoc({ slug }: { slug: string }) {
-    const allSections = await getSectionsData();
-    //eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return allSections.find((doc: any) => doc.slugAsParams === slug);
+function getComponentDoc({ slug }: { slug: string }) {
+    return allSections?.find((doc) => doc.slugAsParams === slug) || null;
 }
-
-import { HomeIcon } from "lucide-react";
-
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { DashedBorderWithTopDots } from "@/components/dashed-layout";
-import Link from "next/link";
 
 export default async function Blogpage({
     params,
@@ -53,7 +53,7 @@ export default async function Blogpage({
     params: Promise<{ slug: string }>;
 }) {
     const slug = await params;
-    const doc = await getComponentDoc(slug);
+    const doc = getComponentDoc(slug);
 
     if (!doc) {
         return <div>Component not found.</div>;
@@ -123,4 +123,121 @@ export default async function Blogpage({
             </main>
         </>
     );
+}
+
+type Props = {
+    params: Promise<{ slug: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  }
+
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata,
+): Promise<Metadata> {
+     const slug = await params;
+    const doc = getComponentDoc(slug);
+
+    if (!doc) {
+        return {
+            title: "Component Not Found",
+            description: "The requested component does not exist.",
+            robots: "noindex, nofollow",
+        };
+    }
+
+    const pageUrl = `${BASE_URL}/sections/${doc.slugAsParams}`;
+
+    const metadata: Metadata = {
+        // Essential metadata
+        metadataBase: new URL(BASE_URL),
+        title: doc.title,
+        description: doc.description,
+
+        // SEO and indexing
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1,
+            },
+        },
+
+        // Canonical and alternate URLs
+        alternates: {
+            canonical: pageUrl,
+            languages: {
+                "en-US": pageUrl,
+            },
+        },
+
+        // Authors and generator
+        authors: [{ name: "Cnippet Team", url: "https://blocks.cnippet.dev" }],
+        generator: "Next.js",
+
+        // Keywords for SEO
+        // add doc.keywords
+        keywords: [
+            "UI components",
+            "React",
+            "Next.js",
+            "Tailwind CSS",
+            doc.title,
+        ],
+
+        // Referrer policy
+        referrer: "origin-when-cross-origin",
+
+        // Creator and publisher
+        creator: "Cnippet Team",
+        publisher: "Cnippet",
+
+        icons: {
+            icon: [
+                { url: "/favicon.ico" },
+                { url: "/icon.png", type: "image/png" },
+            ],
+            apple: [{ url: "/apple-icon.png" }],
+            other: [
+                {
+                    rel: "apple-touch-icon-precomposed",
+                    url: "/apple-touch-icon.png",
+                },
+            ],
+        },
+
+        openGraph: {
+            type: "article",
+            title: doc.title,
+            description: doc.description,
+            url: pageUrl,
+            siteName: "Cnippet UI",
+            locale: "en_US",
+            // publishedTime: doc.publishedAt,
+            // modifiedTime: doc.updatedAt,
+            authors: ["Cnippet Team"],
+            images: [
+                {
+                    url: `${BASE_URL}/og-image.png`,
+                    width: 1200,
+                    height: 630,
+                    alt: "Cnippet UI Component Library",
+                    type: "image/png",
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: doc.title,
+            description: doc.description,
+            creator: "@cnippet_ui",
+            site: "@cnippet_ui",
+            images: [`${BASE_URL}/og-image.png`],
+        },
+    };
+
+    return metadata;
 }

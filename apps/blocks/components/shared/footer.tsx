@@ -182,8 +182,11 @@ export default function Component() {
                                             width={1080}
                                             height={1080}
                                         />
-                                        <span className="text-xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
-                                            CNIPPET
+                                        <span className="font-rale text-xl tracking-tight text-gray-900 dark:text-gray-100">
+                                            Cnippet{" "}
+                                            <span className="text-gray-400">
+                                                Blocks
+                                            </span>
                                         </span>
                                     </div>
                                     <p className="w-[70%] text-sm leading-relaxed text-gray-700 dark:text-gray-400">

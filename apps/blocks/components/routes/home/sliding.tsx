@@ -77,7 +77,7 @@ export default function SlidingImages() {
                             <p>Made with Cnippet UI</p>
                         </div>
 
-                        <motion.h1 className="text-4xl font-semibold tracking-tight text-black md:text-4xl dark:text-white">
+                        <motion.h1 className="font-rale text-4xl tracking-tight text-black md:text-4xl dark:text-white">
                             Build your next project with Cnippet Blocks
                         </motion.h1>
 
@@ -85,15 +85,15 @@ export default function SlidingImages() {
                             className="max-w-md text-sm text-gray-600 dark:text-gray-400"
                             transition={{ delay: 0.2 }}
                         >
-                            The perfect starting point for your next web
+                            x The perfect starting point for your next web
                             application or website.
                         </motion.p>
                     </div>
                 </div>
 
                 <div className="relative overflow-hidden">
-                    <div className="dark:from-background absolute top-0 left-0 z-10 h-full w-40 bg-gradient-to-r from-white" />
-                    <div className="dark:from-background absolute top-0 right-0 z-10 h-full w-40 bg-gradient-to-l from-white" />
+                    <div className="dark:from-background absolute top-0 left-0 z-10 h-full w-40 bg-linear-to-r from-white" />
+                    <div className="dark:from-background absolute top-0 right-0 z-10 h-full w-40 bg-linear-to-l from-white" />
 
                     <motion.div
                         style={{ x: x1 }}
