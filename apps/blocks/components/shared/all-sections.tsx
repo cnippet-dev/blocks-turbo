@@ -44,7 +44,7 @@ const Sections = forwardRef<HTMLDivElement, SectionsProps>(
                                         duration: 0.6,
                                         scroll: true,
                                     })}
-                                    className="text-4xl font-medium tracking-tight text-black md:text-4xl dark:text-white"
+                                    className="font-rale text-4xl font-normal tracking-tight text-black md:text-4xl dark:text-white"
                                 >
                                     Explore wide range of Sections
                                 </motion.h1>
@@ -127,7 +127,7 @@ const Sections = forwardRef<HTMLDivElement, SectionsProps>(
                                                             src={`https://res.cloudinary.com/dcxm3ccir/image/upload/v1753941711/${section.name}.png`}
                                                             sizes="100vw"
                                                             alt="Description of my image"
-                                                            className="from-background w-full rounded-2xl bg-white bg-gradient-to-t dark:bg-neutral-800"
+                                                            className="from-background w-full rounded-2xl bg-white bg-linear-to-t dark:bg-neutral-800"
                                                         />
 
                                                         <div className="flex flex-col items-start p-4">

@@ -54,7 +54,7 @@ const Navbar = () => {
                                         duration: 0.4,
                                         y: -10,
                                     })}
-                                    className="font-funnel text-2xl tracking-tight text-gray-900 dark:text-white"
+                                    className="font-rale text-2xl tracking-tight text-gray-900 dark:text-white"
                                 >
                                     Cnippet{" "}
                                     <span className="text-gray-400">

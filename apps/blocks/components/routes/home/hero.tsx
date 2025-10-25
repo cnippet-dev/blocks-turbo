@@ -17,7 +17,7 @@ const Hero = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
                     <div className="mx-auto flex max-w-4xl flex-col items-center justify-center px-6 py-20 text-center">
                         <motion.h1
                             {...fadeUpBlur({ delay: 0.1, duration: 0.8 })}
-                            className="font-funnel mb-6 max-w-7xl text-4xl leading-tight font-normal tracking-tight text-gray-900 md:text-6xl lg:text-6xl dark:text-gray-100"
+                            className="font-rale mb-6 max-w-7xl text-4xl leading-tight font-normal tracking-tight text-gray-900 md:text-6xl lg:text-6xl dark:text-gray-100"
                         >
                             Section, blocks and templates with{" "}
                             <motion.span
@@ -55,7 +55,7 @@ const Hero = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
                                 duration: 0.6,
                                 y: 20,
                             })}
-                            className="mb-8 max-w-2xl text-center text-lg leading-relaxed tracking-tight break-words text-gray-700 dark:text-gray-400"
+                            className="mb-8 max-w-2xl text-center text-lg leading-relaxed tracking-tight text-gray-700 dark:text-gray-400"
                         >
                             Access premium UI components, pre-built blocks, and
                             comprehensive guides to <br />
@@ -64,7 +64,7 @@ const Hero = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
                                 {...zoomIn({ delay: 0.3, duration: 0.5 })}
                                 className="inline-block w-20 text-left font-semibold text-gray-900 dark:text-gray-100"
                             >
-                                <TextLoop className="font-mono text-lg font-normal">
+                                <TextLoop className="text-lg font-normal">
                                     <span>Startup</span>
                                     <span>Agencies</span>
                                     <span>Teams</span>
@@ -83,7 +83,7 @@ const Hero = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
                         >
                             <Button
                                 size="lg"
-                                className="cursor-pointer rounded-full bg-violet-700/90 px-8 py-5.5 text-sm text-white shadow-none hover:bg-violet-700"
+                                className="cursor-pointer rounded-full bg-blue-700/90 px-8 py-5.5 text-sm text-white shadow-none hover:bg-blue-700"
                             >
                                 Browse Blocks
                                 <RiArrowRightUpLine />

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Funnel_Display, Open_Sans } from "next/font/google";
+import { Funnel_Display, Geist, Geist_Mono, Open_Sans } from "next/font/google";
 
 import AuthProvider from "@/providers/auth-provider";
 import ThemeProvider from "@/providers/theme-provider";
@@ -8,14 +8,14 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { BASE_URL } from "@/config/docs";
 import { ProStatusProvider } from "@/providers/pro-status-provider";
 
-const funnel = Funnel_Display({
+const geistSans = Geist({
+    variable: "--font-geist-sans",
     subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const open_sans = Open_Sans({
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
     subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -25,11 +25,12 @@ export const metadata: Metadata = {
         default: "Cnippet Blocks",
         template: `%s - Cnippet Blocks`,
     },
-    description: "",
+    description:
+        "An extensive collection of copy-and-paste components for quickly building app UIs. Free, open-source, and ready to drop into your projects.",
 
     applicationName: "Cnippet Blocks",
 
-    keywords: [],
+    keywords: ["UI components", "React components", "open source UI kit"],
     authors: [{ name: "Cnippet Team", url: BASE_URL }],
     category: "Technology",
 
@@ -38,10 +39,9 @@ export const metadata: Metadata = {
         title: "Cnippet Blocks",
         description:
             "An extensive collection of copy-and-paste components for quickly building app UIs. Free, open-source, and ready to drop into your projects.",
-        url: BASE_URL,
         images: [
             {
-                url: `${BASE_URL}/images/site.png`,
+                url: `${BASE_URL}/images/og-image.png`,
                 width: 1200,
                 height: 630,
                 alt: "Cnippet Blocks Component Library",
@@ -56,13 +56,9 @@ export const metadata: Metadata = {
         title: "Cnippet Blocks",
         description:
             "An extensive collection of copy-and-paste components for quickly building app UIs. Free, open-source, and ready to drop into your projects.",
-        images: [`${BASE_URL}/images/site.png`],
+        images: [`${BASE_URL}/images/og-image.png`],
         site: "@cnippet_ui",
         creator: "@cnippet_ui",
-    },
-
-    alternates: {
-        canonical: BASE_URL,
     },
 
     robots: {
@@ -76,8 +72,21 @@ export const metadata: Metadata = {
             "max-video-preview": -1,
         },
     },
-};
 
+    icons: {
+        icon: [
+            { url: "/favicon.ico" },
+            { url: "/icon.png", type: "image/png" },
+        ],
+        apple: [{ url: "/apple-icon.png" }],
+        // other: [
+        //     {
+        //         rel: "apple-touch-icon-precomposed",
+        //         url: "/apple-touch-icon.png",
+        //     },
+        // ],
+    },
+};
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -86,7 +95,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${funnel.className} ${open_sans.className} dark:bg-background`}
+                className={`${geistSans.variable} ${geistMono.variable} bg-background antialiased`}
             >
                 <AuthProvider>
                     <ThemeProvider
