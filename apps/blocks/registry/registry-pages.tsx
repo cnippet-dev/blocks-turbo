@@ -25,7 +25,7 @@ const generatePages = (
 
         return {
             name: `${title}-${sectionIndex}`,
-            type: "registry:block",
+            type: "registry:pages",
             auth: authConfig[index] === "T",
             pro: proConfig[index] === "T",
             dependencies: ["framer-motion"],

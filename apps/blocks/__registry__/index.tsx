@@ -652,9 +652,8 @@ export const Index: Record<string, any> = {
   },
   "landing-page-1": {
     name: "landing-page-1",
-    type: "registry:block",
-    auth: true,
-    pro: true,
+    type: "registry:pages",
+    number: "",
     files: [{ 
       path: "registry/default/pages/landing-page/landing-page1.tsx",
       type: "registry:page",
@@ -664,9 +663,8 @@ export const Index: Record<string, any> = {
   },
   "pricing-page-1": {
     name: "pricing-page-1",
-    type: "registry:block",
-    auth: true,
-    pro: true,
+    type: "registry:pages",
+    number: "",
     files: [{ 
       path: "registry/default/pages/pricing-page/pricing-page1.tsx",
       type: "registry:page",
