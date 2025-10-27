@@ -1,20 +1,21 @@
+import { RegistryItem } from "@/types/registry";
 
-const BASE_PATH = "registry/default";
+interface PageConfig {
+    name: string;
+    no?: string;
+}
 
-const generateSections = (
-    sectionsConfig: { name: string; no?: string }[],
-) => {
-    return sectionsConfig.map((section, index) => ({
+const generateSections = (sectionsConfig: PageConfig[]): RegistryItem[] => {
+    return sectionsConfig.map((section) => ({
         name: section.name,
         slug: `/blocks/${section.name}`,
         type: "registry:section",
-        // files: [`${BASE_PATH}/sections/${section.name}/${section.name}-1.tsx`],
         files: [
             {
                 path: "registry/default/sections/hero/hero1.tsx",
                 type: "",
-                target: ""
-            }
+                target: "",
+            },
         ],
         number: section.no,
         thumbnail: `https://res.cloudinary.com/dcxm3ccir/image/upload/v1753941711/${section.name}.png`,

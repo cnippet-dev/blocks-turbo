@@ -4,6 +4,182 @@
 import * as React from "react"
 
 export const Index: Record<string, any> = {
+  "banner": {
+    name: "banner",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "blog": {
+    name: "blog",
+    type: "registry:section",
+    number: "6",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "career": {
+    name: "career",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "contact": {
+    name: "contact",
+    type: "registry:section",
+    number: "2",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "cta": {
+    name: "cta",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "faq": {
+    name: "faq",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "feature": {
+    name: "feature",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "footer": {
+    name: "footer",
+    type: "registry:section",
+    number: "3",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "hero": {
+    name: "hero",
+    type: "registry:section",
+    number: "5",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "login": {
+    name: "login",
+    type: "registry:section",
+    number: "4",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "metrics": {
+    name: "metrics",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "navbar": {
+    name: "navbar",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "newsletter": {
+    name: "newsletter",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "pricing": {
+    name: "pricing",
+    type: "registry:section",
+    number: "7",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "team": {
+    name: "team",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
+  "testimonial": {
+    name: "testimonial",
+    type: "registry:section",
+    number: "1",
+    files: [{ 
+      path: "registry/default/sections/hero/hero1.tsx",
+      type: "",
+      target: ""
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+  },
   "banner-1": {
     name: "banner-1",
     type: "registry:block",
@@ -452,9 +628,9 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/testimonial/testimonial1.tsx")),
   },
-  "banner": {
-    name: "banner",
-    type: "registry:section",
+  "landing-page": {
+    name: "landing-page",
+    type: "registry:page",
     number: "1",
     files: [{ 
       path: "registry/default/sections/hero/hero1.tsx",
@@ -463,20 +639,9 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
   },
-  "blog": {
-    name: "blog",
-    type: "registry:section",
-    number: "6",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "career": {
-    name: "career",
-    type: "registry:section",
+  "pricing-page": {
+    name: "pricing-page",
+    type: "registry:page",
     number: "1",
     files: [{ 
       path: "registry/default/sections/hero/hero1.tsx",
@@ -485,147 +650,28 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
   },
-  "contact": {
-    name: "contact",
-    type: "registry:section",
-    number: "2",
+  "landing-page-1": {
+    name: "landing-page-1",
+    type: "registry:block",
+    auth: true,
+    pro: true,
     files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
+      path: "registry/default/pages/landing-page/landing-page1.tsx",
+      type: "registry:page",
+      target: "/pages/landing-page"
     }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+    component: React.lazy(() => import("@/registry/default/pages/landing-page/landing-page1.tsx")),
   },
-  "cta": {
-    name: "cta",
-    type: "registry:section",
-    number: "1",
+  "pricing-page-1": {
+    name: "pricing-page-1",
+    type: "registry:block",
+    auth: true,
+    pro: true,
     files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
+      path: "registry/default/pages/pricing-page/pricing-page1.tsx",
+      type: "registry:page",
+      target: "/pages/pricing-page"
     }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "faq": {
-    name: "faq",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "feature": {
-    name: "feature",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "footer": {
-    name: "footer",
-    type: "registry:section",
-    number: "3",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "hero": {
-    name: "hero",
-    type: "registry:section",
-    number: "5",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "login": {
-    name: "login",
-    type: "registry:section",
-    number: "4",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "metrics": {
-    name: "metrics",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "navbar": {
-    name: "navbar",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "newsletter": {
-    name: "newsletter",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "pricing": {
-    name: "pricing",
-    type: "registry:section",
-    number: "7",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "team": {
-    name: "team",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
-  },
-  "testimonial": {
-    name: "testimonial",
-    type: "registry:section",
-    number: "1",
-    files: [{ 
-      path: "registry/default/sections/hero/hero1.tsx",
-      type: "",
-      target: ""
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/hero/hero1.tsx")),
+    component: React.lazy(() => import("@/registry/default/pages/pricing-page/pricing-page1.tsx")),
   },
 }
