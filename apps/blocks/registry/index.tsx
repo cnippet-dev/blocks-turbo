@@ -1,6 +1,12 @@
-import { Registry } from "./schema";
+// index.tsx
 import { section } from "./registry-section";
 import { sections } from "./registry-sections";
-import { blocks } from "@/registry/registry-blocks";
+import { page } from "./registry-page";
+import { pages } from "./registry-pages";
 
-export const registry = [...blocks, ...section];
+export const registry = [
+    ...section,
+    ...sections,
+    ...page,
+    ...pages,
+];

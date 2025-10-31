@@ -6,11 +6,10 @@ import { ReactLenis } from "lenis/react";
 
 const Navbar = dynamic(() => import("@/components/shared/navbar"));
 const Hero = dynamic(() => import("@/components/routes/home/hero"));
-// const Features = dynamic(() => import("@/components/routes/home/features"));
-// const Faq = dynamic(() => import("@/components/routes/home/faq"));
 const Footer = dynamic(() => import("@/components/shared/footer"));
-// const Cta = dynamic(() => import("@/components/routes/home/cta"));
 const Sections = dynamic(() => import("@/components/shared/all-sections"));
+const Pages = dynamic(() => import("@/components/shared/all-pages"));
+
 const SlidingImages = dynamic(() => import("@/components/routes/home/sliding"));
 
 const CursorPointer = dynamic(() => import("@/components/cursor-pointer"));
@@ -33,11 +32,8 @@ export default function Home() {
                 <main className="dark:bg-background">
                     <Hero ref={heroRef} />
                     <Sections ref={componentsRef} count={15} />
-                    {/* <Features /> */}
-
+                    <Pages />
                     <SlidingImages />
-                    {/* <Faq /> */}
-                    {/* <Cta /> */}
                 </main>
                 <Footer />
             </div>

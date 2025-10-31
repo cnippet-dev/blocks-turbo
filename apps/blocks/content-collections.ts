@@ -104,7 +104,8 @@ const createCollection = (name: string, directory: string) => {
 
 // Create collections using the helper function
 const sections = createCollection("sections", "content/section");
+const pages = createCollection("pages", "content/page");
 
 export default defineConfig({
-    collections: [sections],
+    collections: [sections, pages],
 });

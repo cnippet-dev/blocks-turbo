@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Funnel_Display, Geist, Geist_Mono, Open_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import AuthProvider from "@/providers/auth-provider";
 import ThemeProvider from "@/providers/theme-provider";
@@ -79,12 +79,6 @@ export const metadata: Metadata = {
             { url: "/icon.png", type: "image/png" },
         ],
         apple: [{ url: "/apple-icon.png" }],
-        // other: [
-        //     {
-        //         rel: "apple-touch-icon-precomposed",
-        //         url: "/apple-touch-icon.png",
-        //     },
-        // ],
     },
 };
 export default function RootLayout({
