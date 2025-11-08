@@ -12,6 +12,7 @@ export interface RegistryItem {
     slug?: string;
     auth?: boolean;
     pro?: boolean;
+    starter?: boolean;
     number?: string;
     thumbnail?: string;
     title?: string;
@@ -50,6 +51,7 @@ export interface IndexEntry {
     type: string;
     auth?: boolean;
     pro?: boolean;
+    starter?: boolean;
     number?: string;
     files: (string | RegistryFile)[];
     component: React.LazyExoticComponent<React.ComponentType<Record<string, never>>>;

@@ -53,6 +53,7 @@ export const Index: Record<string, any> = {`;
     type: "${item.type}",
     ${item.type === "registry:block"
     ? `auth: ${item.auth || false},
+    starter: ${item.starter || false},
     pro: ${item.pro || false},`
     : `number: "${item.number || ""}",`}
     files: [${item.files?.map((file: any) => {

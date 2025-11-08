@@ -184,6 +184,7 @@ export const Index: Record<string, any> = {
     name: "banner-1",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/banner/banner1.tsx",
@@ -192,82 +193,11 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/banner/banner1.tsx")),
   },
-  "blog-1": {
-    name: "blog-1",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/blog/blog1.tsx",
-      type: "registry:page",
-      target: "/sections/blog"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/blog/blog1.tsx")),
-  },
-  "blog-2": {
-    name: "blog-2",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/blog/blog2.tsx",
-      type: "registry:page",
-      target: "/sections/blog"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/blog/blog2.tsx")),
-  },
-  "blog-3": {
-    name: "blog-3",
-    type: "registry:block",
-    auth: true,
-    pro: true,
-    files: [{ 
-      path: "registry/default/sections/blog/blog3.tsx",
-      type: "registry:page",
-      target: "/sections/blog"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/blog/blog3.tsx")),
-  },
-  "blog-4": {
-    name: "blog-4",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/blog/blog4.tsx",
-      type: "registry:page",
-      target: "/sections/blog"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/blog/blog4.tsx")),
-  },
-  "blog-5": {
-    name: "blog-5",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/blog/blog5.tsx",
-      type: "registry:page",
-      target: "/sections/blog"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/blog/blog5.tsx")),
-  },
-  "blog-6": {
-    name: "blog-6",
-    type: "registry:block",
-    auth: true,
-    pro: true,
-    files: [{ 
-      path: "registry/default/sections/blog/blog6.tsx",
-      type: "registry:page",
-      target: "/sections/blog"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/blog/blog6.tsx")),
-  },
   "career-1": {
     name: "career-1",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/career/career1.tsx",
@@ -276,34 +206,11 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/career/career1.tsx")),
   },
-  "contact-1": {
-    name: "contact-1",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/contact/contact1.tsx",
-      type: "registry:page",
-      target: "/sections/contact"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/contact/contact1.tsx")),
-  },
-  "contact-2": {
-    name: "contact-2",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/contact/contact2.tsx",
-      type: "registry:page",
-      target: "/sections/contact"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/contact/contact2.tsx")),
-  },
   "cta-1": {
     name: "cta-1",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/cta/cta1.tsx",
@@ -316,6 +223,7 @@ export const Index: Record<string, any> = {
     name: "faq-1",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/faq/faq1.tsx",
@@ -328,6 +236,7 @@ export const Index: Record<string, any> = {
     name: "feature-1",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/feature/feature1.tsx",
@@ -336,10 +245,180 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/feature/feature1.tsx")),
   },
+  "metrics-1": {
+    name: "metrics-1",
+    type: "registry:block",
+    auth: true,
+    starter: true,
+    pro: true,
+    files: [{ 
+      path: "registry/default/sections/metrics/metrics1.tsx",
+      type: "registry:page",
+      target: "/sections/metrics"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/metrics/metrics1.tsx")),
+  },
+  "navbar-1": {
+    name: "navbar-1",
+    type: "registry:block",
+    auth: true,
+    starter: true,
+    pro: true,
+    files: [{ 
+      path: "registry/default/sections/navbar/navbar1.tsx",
+      type: "registry:page",
+      target: "/sections/navbar"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/navbar/navbar1.tsx")),
+  },
+  "newsletter-1": {
+    name: "newsletter-1",
+    type: "registry:block",
+    auth: true,
+    starter: true,
+    pro: true,
+    files: [{ 
+      path: "registry/default/sections/newsletter/newsletter1.tsx",
+      type: "registry:page",
+      target: "/sections/newsletter"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/newsletter/newsletter1.tsx")),
+  },
+  "team-1": {
+    name: "team-1",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/team/team1.tsx",
+      type: "registry:page",
+      target: "/sections/team"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/team/team1.tsx")),
+  },
+  "testimonial-1": {
+    name: "testimonial-1",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/testimonial/testimonial1.tsx",
+      type: "registry:page",
+      target: "/sections/testimonial"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/testimonial/testimonial1.tsx")),
+  },
+  "blog-1": {
+    name: "blog-1",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/blog/blog1.tsx",
+      type: "registry:page",
+      target: "/sections/blog"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/blog/blog1.tsx")),
+  },
+  "blog-2": {
+    name: "blog-2",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/blog/blog2.tsx",
+      type: "registry:page",
+      target: "/sections/blog"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/blog/blog2.tsx")),
+  },
+  "blog-3": {
+    name: "blog-3",
+    type: "registry:block",
+    auth: true,
+    starter: true,
+    pro: true,
+    files: [{ 
+      path: "registry/default/sections/blog/blog3.tsx",
+      type: "registry:page",
+      target: "/sections/blog"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/blog/blog3.tsx")),
+  },
+  "blog-4": {
+    name: "blog-4",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/blog/blog4.tsx",
+      type: "registry:page",
+      target: "/sections/blog"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/blog/blog4.tsx")),
+  },
+  "blog-5": {
+    name: "blog-5",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/blog/blog5.tsx",
+      type: "registry:page",
+      target: "/sections/blog"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/blog/blog5.tsx")),
+  },
+  "blog-6": {
+    name: "blog-6",
+    type: "registry:block",
+    auth: true,
+    starter: true,
+    pro: true,
+    files: [{ 
+      path: "registry/default/sections/blog/blog6.tsx",
+      type: "registry:page",
+      target: "/sections/blog"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/blog/blog6.tsx")),
+  },
+  "contact-1": {
+    name: "contact-1",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/contact/contact1.tsx",
+      type: "registry:page",
+      target: "/sections/contact"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/contact/contact1.tsx")),
+  },
+  "contact-2": {
+    name: "contact-2",
+    type: "registry:block",
+    auth: false,
+    starter: false,
+    pro: false,
+    files: [{ 
+      path: "registry/default/sections/contact/contact2.tsx",
+      type: "registry:page",
+      target: "/sections/contact"
+    }],
+    component: React.lazy(() => import("@/registry/default/sections/contact/contact2.tsx")),
+  },
   "footer-1": {
     name: "footer-1",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/footer/footer1.tsx",
@@ -352,6 +431,7 @@ export const Index: Record<string, any> = {
     name: "footer-2",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/footer/footer2.tsx",
@@ -364,6 +444,7 @@ export const Index: Record<string, any> = {
     name: "footer-3",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/footer/footer3.tsx",
@@ -376,6 +457,7 @@ export const Index: Record<string, any> = {
     name: "hero-1",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/hero/hero1.tsx",
@@ -392,6 +474,7 @@ export const Index: Record<string, any> = {
     name: "hero-2",
     type: "registry:block",
     auth: true,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/hero/hero2.tsx",
@@ -404,6 +487,7 @@ export const Index: Record<string, any> = {
     name: "hero-3",
     type: "registry:block",
     auth: true,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/hero/hero3.tsx",
@@ -416,6 +500,7 @@ export const Index: Record<string, any> = {
     name: "hero-4",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/hero/hero4.tsx",
@@ -428,6 +513,7 @@ export const Index: Record<string, any> = {
     name: "hero-5",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/hero/hero5.tsx",
@@ -440,7 +526,8 @@ export const Index: Record<string, any> = {
     name: "login-1",
     type: "registry:block",
     auth: false,
-    pro: false,
+    starter: false,
+    pro: true,
     files: [{ 
       path: "registry/default/sections/login/login1.tsx",
       type: "registry:page",
@@ -452,7 +539,8 @@ export const Index: Record<string, any> = {
     name: "login-2",
     type: "registry:block",
     auth: false,
-    pro: false,
+    starter: false,
+    pro: true,
     files: [{ 
       path: "registry/default/sections/login/login2.tsx",
       type: "registry:page",
@@ -464,7 +552,8 @@ export const Index: Record<string, any> = {
     name: "login-3",
     type: "registry:block",
     auth: false,
-    pro: false,
+    starter: false,
+    pro: true,
     files: [{ 
       path: "registry/default/sections/login/login3.tsx",
       type: "registry:page",
@@ -475,8 +564,9 @@ export const Index: Record<string, any> = {
   "login-4": {
     name: "login-4",
     type: "registry:block",
-    auth: false,
-    pro: false,
+    auth: true,
+    starter: false,
+    pro: true,
     files: [{ 
       path: "registry/default/sections/login/login4.tsx",
       type: "registry:page",
@@ -484,46 +574,11 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(() => import("@/registry/default/sections/login/login4.tsx")),
   },
-  "metrics-1": {
-    name: "metrics-1",
-    type: "registry:block",
-    auth: true,
-    pro: true,
-    files: [{ 
-      path: "registry/default/sections/metrics/metrics1.tsx",
-      type: "registry:page",
-      target: "/sections/metrics"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/metrics/metrics1.tsx")),
-  },
-  "navbar-1": {
-    name: "navbar-1",
-    type: "registry:block",
-    auth: true,
-    pro: true,
-    files: [{ 
-      path: "registry/default/sections/navbar/navbar1.tsx",
-      type: "registry:page",
-      target: "/sections/navbar"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/navbar/navbar1.tsx")),
-  },
-  "newsletter-1": {
-    name: "newsletter-1",
-    type: "registry:block",
-    auth: true,
-    pro: true,
-    files: [{ 
-      path: "registry/default/sections/newsletter/newsletter1.tsx",
-      type: "registry:page",
-      target: "/sections/newsletter"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/newsletter/newsletter1.tsx")),
-  },
   "pricing-1": {
     name: "pricing-1",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/pricing/pricing1.tsx",
@@ -536,6 +591,7 @@ export const Index: Record<string, any> = {
     name: "pricing-2",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/pricing/pricing2.tsx",
@@ -548,6 +604,7 @@ export const Index: Record<string, any> = {
     name: "pricing-3",
     type: "registry:block",
     auth: true,
+    starter: true,
     pro: true,
     files: [{ 
       path: "registry/default/sections/pricing/pricing3.tsx",
@@ -560,6 +617,7 @@ export const Index: Record<string, any> = {
     name: "pricing-4",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/pricing/pricing4.tsx",
@@ -572,6 +630,7 @@ export const Index: Record<string, any> = {
     name: "pricing-5",
     type: "registry:block",
     auth: true,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/pricing/pricing5.tsx",
@@ -584,6 +643,7 @@ export const Index: Record<string, any> = {
     name: "pricing-6",
     type: "registry:block",
     auth: false,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/pricing/pricing6.tsx",
@@ -596,6 +656,7 @@ export const Index: Record<string, any> = {
     name: "pricing-7",
     type: "registry:block",
     auth: true,
+    starter: false,
     pro: false,
     files: [{ 
       path: "registry/default/sections/pricing/pricing7.tsx",
@@ -603,30 +664,6 @@ export const Index: Record<string, any> = {
       target: "/sections/pricing"
     }],
     component: React.lazy(() => import("@/registry/default/sections/pricing/pricing7.tsx")),
-  },
-  "team-1": {
-    name: "team-1",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/team/team1.tsx",
-      type: "registry:page",
-      target: "/sections/team"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/team/team1.tsx")),
-  },
-  "testimonial-1": {
-    name: "testimonial-1",
-    type: "registry:block",
-    auth: false,
-    pro: false,
-    files: [{ 
-      path: "registry/default/sections/testimonial/testimonial1.tsx",
-      type: "registry:page",
-      target: "/sections/testimonial"
-    }],
-    component: React.lazy(() => import("@/registry/default/sections/testimonial/testimonial1.tsx")),
   },
   "landing-page": {
     name: "landing-page",

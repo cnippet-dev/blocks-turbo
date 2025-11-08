@@ -91,8 +91,10 @@ export default function SectionsPage() {
                 const category = match ? match[1] : item.name;
                 if (!selectedCategories.includes(category)) return false;
             }
+            // License filtering
             if (urlLicense === "pro" && !item.pro) return false;
-            if (urlLicense === "free" && item.pro) return false;
+            if (urlLicense === "starter" && !item.starter) return false;
+            if (urlLicense === "free" && (item.pro || item.starter)) return false;
             return true;
         },
     );

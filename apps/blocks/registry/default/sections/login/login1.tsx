@@ -188,36 +188,36 @@ export default function LoginForm({
                             elit. Ut metus nunc, fermentum id ex non
                         </p>
                     </div>
-                    <div className="flex h-80 w-full rotate-x-[50deg] -rotate-z-45 items-center gap-6">
+                    <div className="flex h-80 w-full rotate-x-50 -rotate-z-45 items-center gap-6">
                         <Image
                             src={`https://res.cloudinary.com/dcxm3ccir/image/upload/v1753447263/hero-2.png`}
                             alt=""
                             width={4210}
                             height={1080}
-                            className="aspect-[16/10] h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
+                            className="aspect-16/10 h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
                         />
                         <Image
                             src={`https://res.cloudinary.com/dcxm3ccir/image/upload/v1753447263/pricing-2.png`}
                             alt=""
                             width={4210}
                             height={1080}
-                            className="aspect-[16/10] h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
+                            className="aspect-16/10 h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
                         />
                     </div>
-                    <div className="flex h-80 rotate-x-[50deg] -rotate-z-45 items-center gap-6">
+                    <div className="rotate-x-50deg flex h-80 -rotate-z-45 items-center gap-6">
                         <Image
                             src={`https://res.cloudinary.com/dcxm3ccir/image/upload/v1753447263/pricing-3.png`}
                             alt=""
                             width={4210}
                             height={1080}
-                            className="aspect-[16/10] h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
+                            className="aspect-16/10 h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
                         />
                         <Image
                             src={`https://res.cloudinary.com/dcxm3ccir/image/upload/v1753447263/pricing-5.png`}
                             alt=""
                             width={4210}
                             height={1080}
-                            className="aspect-[16/10] h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
+                            className="aspect-16/10 h-full w-full rounded-2xl border bg-white object-cover object-top p-1"
                         />
                     </div>
                 </div>

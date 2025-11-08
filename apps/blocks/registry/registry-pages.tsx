@@ -5,6 +5,7 @@ const generatePages = (
     totalSections: number,
     authConfig: string[],
     proConfig: string[],
+    starterConfig: string[],
     files?: (string | RegistryFile | (string | RegistryFile)[])[]
 ) => {
     return Array.from({ length: totalSections }, (_, index) => {
@@ -28,6 +29,7 @@ const generatePages = (
             type: "registry:pages",
             auth: authConfig[index] === "T",
             pro: proConfig[index] === "T",
+            starter: starterConfig[index] === "T",
             dependencies: ["framer-motion"],
             files: normalizedFiles,
         };
@@ -35,6 +37,6 @@ const generatePages = (
 };
 
 export const pages = [
-    ...generatePages("landing-page", 1, ["T"], ["T"], []),
-    ...generatePages("pricing-page", 1, ["T"], ["T"], []),
+    ...generatePages("landing-page", 1, ["T"], ["T"], ["T"], []),
+    ...generatePages("pricing-page", 1, ["T"], ["T"], ["T"], []),
 ];
