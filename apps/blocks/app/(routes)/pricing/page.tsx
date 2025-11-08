@@ -8,7 +8,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { Check, Info, Plus } from "lucide-react";
 
-import { plans } from "@/config/pricing-plan";
+import { plans, additionalPlans } from "@/config/pricing-plan";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CardTitle } from "@/components/ui/card";
@@ -37,38 +37,40 @@ export default function PricingPage() {
 
     const featureRows = [
         {
-            name: "Basic Blocks",
+            name: "Sections & Blocks",
             key: "basicBlocks",
-            tooltip: "All basics sections.",
+            tooltip: "Access to sections and component blocks",
         },
         {
-            name: "Advanced Blocks",
+            name: "Pages & Templates",
             key: "advanceBlocks",
-            tooltip: "Number of team members that can use the platform",
-        },
-        {
-            name: "Pages",
-            key: "pages",
-            tooltip: "Customer support availability",
+            tooltip: "Access to pages and premium templates",
         },
         {
             name: "Templates",
+            key: "pages",
+            tooltip: "Premium template library access",
+        },
+        {
+            name: "Figma Files",
             key: "templates",
-            tooltip: "Storage space allocated per user",
+            tooltip: "Access to Figma design files",
         },
         {
             name: "Usage License",
             key: "usage",
-            tooltip: "Automation tools and workflow builders",
+            tooltip: "License type and usage rights",
         },
         {
-            name: "Priority Support",
+            name: "Support",
             key: "support",
-            tooltip: "Connect with popular third-party tools",
+            tooltip: "Support level and availability",
         },
     ];
 
-    const getPrice = (plan: (typeof plans)[0]) => {
+    const getPrice = (
+        plan: (typeof plans)[0] | (typeof additionalPlans)[0],
+    ) => {
         return billingCycle === "monthly"
             ? plan.monthlyPrice
             : plan.annualPrice;
@@ -273,7 +275,7 @@ export default function PricingPage() {
                                             <span className="font-funnel text-4xl">
                                                 ₹{getPrice(plan)}
                                             </span>
-                                            {plan.lifetime ? (
+                                            {"lifetime" in plan && plan.lifetime ? (
                                                 <span className="ml-1 text-gray-600">
                                                     Onetime
                                                 </span>
@@ -443,6 +445,174 @@ export default function PricingPage() {
                                         ))}
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+
+                        {/* Additional Plans Section - Agency and Lifetime */}
+                        <div className="mt-20">
+                            <div className="mb-8 text-center">
+                                <h2 className="text-3xl font-medium tracking-tight">
+                                    Enterprise & Lifetime Plans
+                                </h2>
+                                <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
+                                    For teams, agencies, and those who want lifetime access
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                                {additionalPlans.map((plan) => (
+                                    <div
+                                        key={plan.name}
+                                        className="relative flex flex-col rounded-lg border-2 border-gray-200 bg-white p-8 shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+                                    >
+                                        <div className="mb-6">
+                                            <div className="mb-2 flex items-center gap-2">
+                                                <CardTitle className="font-funnel text-2xl font-normal">
+                                                    {plan.name}
+                                                </CardTitle>
+                                                {plan.discount && (
+                                                    <Badge className="bg-purple-600 hover:bg-purple-700">
+                                                        {plan.discount}
+                                                    </Badge>
+                                                )}
+                                            </div>
+                                            <div className="mt-4">
+                                                <span className="font-funnel text-4xl">
+                                                    ₹{getPrice(plan)}
+                                                </span>
+                                                {plan.lifetime ? (
+                                                    <span className="ml-1 text-gray-600">
+                                                        Onetime
+                                                    </span>
+                                                ) : (
+                                                    <span className="ml-1 text-sm text-gray-600 dark:text-gray-400">
+                                                        per{" "}
+                                                        {billingCycle == "monthly"
+                                                            ? "month"
+                                                            : "year"}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            {plan.discount &&
+                                                billingCycle != "monthly" &&
+                                                !plan.lifetime && (
+                                                    <div className="mt-2">
+                                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                                            Save{" "}
+                                                            {Math.round(
+                                                                ((plan.monthlyPrice *
+                                                                    12 -
+                                                                    plan.annualPrice) /
+                                                                    (plan.monthlyPrice *
+                                                                        12)) *
+                                                                    100,
+                                                            )}
+                                                            % with annual billing
+                                                        </p>
+                                                    </div>
+                                                )}
+                                            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                                                {plan.description}
+                                            </p>
+                                        </div>
+
+                                        <div className="mb-6 flex-1 space-y-3">
+                                            {Object.entries(plan.features).map(
+                                                ([key, value]) => {
+                                                    if (
+                                                        Array.isArray(value) &&
+                                                        value.length === 2
+                                                    ) {
+                                                        return (
+                                                            <div
+                                                                key={key}
+                                                                className="flex items-start gap-2"
+                                                            >
+                                                                {value[0] ? (
+                                                                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
+                                                                ) : (
+                                                                    <Plus className="mt-0.5 h-5 w-5 rotate-45 shrink-0 text-red-500" />
+                                                                )}
+                                                                <span className="text-sm text-gray-700 dark:text-gray-300">
+                                                                    {value[1]}
+                                                                </span>
+                                                            </div>
+                                                        );
+                                                    } else if (
+                                                        typeof value === "boolean"
+                                                    ) {
+                                                        return (
+                                                            <div
+                                                                key={key}
+                                                                className="flex items-start gap-2"
+                                                            >
+                                                                {value ? (
+                                                                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
+                                                                ) : (
+                                                                    <Plus className="mt-0.5 h-5 w-5 rotate-45 shrink-0 text-red-500" />
+                                                                )}
+                                                                <span className="text-sm text-gray-700 dark:text-gray-300">
+                                                                    {key
+                                                                        .replace(
+                                                                            /([A-Z])/g,
+                                                                            " $1",
+                                                                        )
+                                                                        .trim()}
+                                                                </span>
+                                                            </div>
+                                                        );
+                                                    } else {
+                                                        return (
+                                                            <div
+                                                                key={key}
+                                                                className="flex items-start gap-2"
+                                                            >
+                                                                <Check className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
+                                                                <span className="text-sm text-gray-700 dark:text-gray-300">
+                                                                    {value}
+                                                                </span>
+                                                            </div>
+                                                        );
+                                                    }
+                                                },
+                                            )}
+                                        </div>
+
+                                        <div className="mt-auto space-y-4">
+                                            {getPrice(plan) > 0 ? (
+                                                <Button
+                                                    className="w-full cursor-pointer rounded-full bg-violet-700/90 text-white hover:bg-violet-700"
+                                                    onClick={() =>
+                                                        handleSubscribe(plan)
+                                                    }
+                                                >
+                                                    Get started
+                                                </Button>
+                                            ) : (
+                                                <Button className="w-full cursor-pointer rounded-full bg-violet-700/90 text-white hover:bg-violet-700">
+                                                    <Link href="/sections">
+                                                        Explore components
+                                                    </Link>
+                                                </Button>
+                                            )}
+                                            {getPrice(plan) ? (
+                                                <Button
+                                                    variant="outline"
+                                                    className="w-full cursor-pointer rounded-full bg-transparent"
+                                                    onClick={() =>
+                                                        handleChatToSales(
+                                                            plan.name,
+                                                        )
+                                                    }
+                                                >
+                                                    Chat to sales
+                                                </Button>
+                                            ) : (
+                                                ""
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>

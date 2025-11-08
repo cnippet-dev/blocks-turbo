@@ -24,7 +24,7 @@ import {
     cancelSubscription,
 } from "@/lib/actions/subscription.actions";
 
-import { PRICING_PLANS } from "@/config/pricing-plan";
+import { plans, additionalPlans } from "@/config/pricing-plan";
 
 interface SubscriptionData {
     id: string;
@@ -72,11 +72,33 @@ export default function SubscriptionsPage() {
                     endDate: new Date(result.data.endDate).toLocaleDateString(),
                 });
 
-                const matchingPlan = PRICING_PLANS.find(
-                    (p) => p.name === result.data.plan,
-                );
+                // Find plan in either plans or additionalPlans
+                const matchingPlan =
+                    plans.find((p) => p.name === result.data.plan) ||
+                    additionalPlans.find((p) => p.name === result.data.plan);
+
                 if (matchingPlan) {
-                    setCurrentPlanFeatures(matchingPlan.features);
+                    // Convert features object to array of strings for display
+                    const featuresList: string[] = [];
+                    Object.entries(matchingPlan.features).forEach(
+                        ([key, value]) => {
+                            if (Array.isArray(value) && value.length === 2) {
+                                if (value[0]) {
+                                    featuresList.push(value[1] as string);
+                                }
+                            } else if (typeof value === "boolean" && value) {
+                                featuresList.push(
+                                    key
+                                        .replace(/([A-Z])/g, " $1")
+                                        .trim()
+                                        .replace(/^\w/, (c) => c.toUpperCase()),
+                                );
+                            } else if (typeof value === "string") {
+                                featuresList.push(value);
+                            }
+                        },
+                    );
+                    setCurrentPlanFeatures(featuresList);
                 } else {
                     setCurrentPlanFeatures([]);
                 }
@@ -205,7 +227,10 @@ export default function SubscriptionsPage() {
                                 <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
                                     <Calendar className="mr-2 h-4 w-4" />
                                     <span>
-                                        End Date: {currentSubscription.endDate}
+                                        {currentSubscription.plan.toLowerCase() ===
+                                        "lifetime"
+                                            ? "Expires: Never (Lifetime)"
+                                            : `End Date: ${currentSubscription.endDate}`}
                                     </span>
                                 </div>
                             </div>
@@ -221,7 +246,7 @@ export default function SubscriptionsPage() {
                                                     key={index}
                                                     className="flex items-center text-sm text-gray-600 dark:text-gray-400"
                                                 >
-                                                    <CheckCircle2 className="mr-2 h-3 w-3 flex-shrink-0 text-green-500" />
+                                                    <CheckCircle2 className="mr-2 h-3 w-3 shrink-0 text-green-500" />
                                                     {feature}
                                                 </li>
                                             ),

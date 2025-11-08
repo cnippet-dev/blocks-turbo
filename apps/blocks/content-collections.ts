@@ -25,6 +25,7 @@ const sharedSchema = z.object({
     }),
     link: z.string(),
     toc: z.boolean().optional().default(true),
+    content: z.string(),
 });
 
 const sharedRehypePlugins = [
