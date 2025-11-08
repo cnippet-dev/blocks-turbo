@@ -36,7 +36,7 @@ export function SectionPreview({ name }: SectionPreviewProps) {
     const SrcPath = Files[fileIndex]?.path;
 
     const { isAuthenticated } = useSessionCache();
-    const { isPro, isLoading: isProLoading } = useProStatus();
+    const { isPro, isStarter, isLoading: isProLoading } = useProStatus();
 
     // Memoize expensive computations
     const componentConfig = React.useMemo(() => {
@@ -63,13 +63,33 @@ export function SectionPreview({ name }: SectionPreviewProps) {
         return <Component />;
     }, [componentConfig, name]);
 
-    const { auth: requiresAuth, pro: requiresPro } = componentConfig || {};
+    const { auth: requiresAuth, pro: requiresPro, starter: requiresStarter } = componentConfig || {};
 
     // Memoize authentication checks
-    const canViewCode = React.useMemo(
-        () => !requiresAuth || (isAuthenticated && (!requiresPro || isPro)),
-        [requiresAuth, requiresPro, isAuthenticated, isPro],
-    );
+    // Logic: 
+    // - If requiresPro (but not starter), user needs pro
+    // - If requiresStarter, user needs starter or pro (pro includes starter)
+    // - If requiresAuth, user needs to be authenticated
+    const canViewCode = React.useMemo(() => {
+        if (!requiresAuth && !requiresPro && !requiresStarter) {
+            return true; // Free component
+        }
+        if (!isAuthenticated) {
+            return false; // Requires auth but not authenticated
+        }
+        
+        // Check tier requirements
+        if (requiresPro && !requiresStarter) {
+            // Component is pro-only (not in starter)
+            return isPro;
+        }
+        if (requiresStarter) {
+            // Component is in starter (or both starter and pro)
+            return isStarter || isPro; // Pro users also get starter access
+        }
+        
+        return true; // Only requires auth, which is satisfied
+    }, [requiresAuth, requiresPro, requiresStarter, isAuthenticated, isPro, isStarter]);
 
     const renderTabs = () => {
         if (canViewCode) {
@@ -79,7 +99,7 @@ export function SectionPreview({ name }: SectionPreviewProps) {
                 </TabsTrigger>
             );
         }
-        if (requiresPro && !isPro) {
+        if ((requiresPro && !isPro) || (requiresStarter && !isStarter && !isPro)) {
             return (
                 <TabsTrigger value="pro" onClick={() => setActiveTab("pro")}>
                     Code
@@ -127,7 +147,7 @@ export function SectionPreview({ name }: SectionPreviewProps) {
         }
         if (activeTab === "code" && canViewCode) {
             return (
-                <div className="overflow-y-auto rounded-xl text-sm break-words">
+                <div className="overflow-y-auto rounded-xl text-sm wrap-break-words">
                     {Files.length > 1 && (
                         <div className="flex items-center gap-2 border-b px-2 py-1">
                             {Files.map((f: { path: string }, idx: number) => {
@@ -163,14 +183,35 @@ export function SectionPreview({ name }: SectionPreviewProps) {
                 </div>
             );
         }
-        if (activeTab === "pro" || (requiresPro && !isPro)) {
+        if (activeTab === "pro" || (requiresPro && !isPro) || (requiresStarter && !isStarter && !isPro)) {
+            const isProOnly = requiresPro && !requiresStarter;
+            const isStarterOnly = requiresStarter && !requiresPro;
+            const requiresBoth = requiresStarter && requiresPro;
+            
+            let message: string;
+            let buttonText: string;
+            
+            if (isProOnly) {
+                message = "This is a Pro-only component. Upgrade to Pro to view the code.";
+                buttonText = "Get Pro";
+            } else if (isStarterOnly) {
+                message = "This is a Starter component. Upgrade to Starter or Pro to view the code.";
+                buttonText = "Get Starter";
+            } else if (requiresBoth) {
+                message = "This component requires a Starter or Pro subscription. Upgrade to view the code.";
+                buttonText = "Get Starter";
+            } else {
+                message = "This component requires a Starter or Pro subscription. Upgrade to view the code.";
+                buttonText = "Get Starter";
+            }
+            
             return (
                 <div className="flex min-h-[200px] flex-col items-center justify-center gap-4">
                     <p className="text-muted-foreground text-center text-base">
-                        This is a Pro component. Upgrade to view the code.
+                        {message}
                     </p>
                     <Button asChild>
-                        <Link href="/pricing">Get Pro</Link>
+                        <Link href="/pricing">{buttonText}</Link>
                     </Button>
                 </div>
             );
@@ -231,7 +272,7 @@ export function SectionPreview({ name }: SectionPreviewProps) {
                                 </Tabs>
                                 <Separator
                                     orientation="vertical"
-                                    className="!h-6"
+                                    className="h-6!"
                                 />
                                 <TooltipTrigger>
                                     <Button

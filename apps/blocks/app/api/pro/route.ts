@@ -11,7 +11,11 @@ export async function GET() {
 
     if (!session?.user?.email) {
       // User is not authenticated
-      return NextResponse.json({ isPro: false }, { status: 200 });
+      return NextResponse.json({ 
+        isPro: false, 
+        isStarter: false,
+        plan: null 
+      }, { status: 200 });
     }
 
     const user = await prisma.user.findUnique({
@@ -19,16 +23,58 @@ export async function GET() {
         email: session.user.email,
       },
       select: {
-        pro: true, // Only select the 'pro' field
+        id: true,
+        pro: true,
       },
     });
 
     if (!user) {
       // User not found in the database
-      return NextResponse.json({ isPro: false }, { status: 200 });
+      return NextResponse.json({ 
+        isPro: false, 
+        isStarter: false,
+        plan: null 
+      }, { status: 200 });
     }
 
-    return NextResponse.json({ isPro: user.pro });
+    // Get active subscription to determine plan
+    const now = new Date();
+    const activeSubscription = await prisma.subscription.findFirst({
+      where: {
+        userId: user.id,
+        status: "ACTIVE",
+        endDate: {
+          gte: now,
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    const plan = activeSubscription?.plan?.toLowerCase() || null;
+    // Check if user has starter tier (starter plan or any paid plan that includes starter access)
+    // Starter tier includes: starter, and pro/agency/lifetime/enterprise (since pro includes starter)
+    const isStarter = plan && (
+      plan.includes("starter") || 
+      plan.includes("pro") || 
+      plan.includes("agency") || 
+      plan.includes("lifetime") || 
+      plan.includes("enterprise")
+    );
+    // Pro tier is specifically pro, agency, lifetime, or enterprise plans
+    const isPro = user.pro && plan && (
+      plan.includes("pro") || 
+      plan.includes("agency") || 
+      plan.includes("lifetime") || 
+      plan.includes("enterprise")
+    );
+
+    return NextResponse.json({ 
+      isPro, 
+      isStarter,
+      plan 
+    });
   } catch (error) {
     console.error("Error fetching pro status:", error);
     return NextResponse.json(

@@ -91,8 +91,10 @@ export default function SectionsPage() {
                 const category = match ? match[1] : item.name;
                 if (!selectedCategories.includes(category)) return false;
             }
+            // License filtering
             if (urlLicense === "pro" && !item.pro) return false;
-            if (urlLicense === "free" && item.pro) return false;
+            if (urlLicense === "starter" && !item.starter) return false;
+            if (urlLicense === "free" && (item.pro || item.starter)) return false;
             return true;
         },
     );
@@ -290,7 +292,7 @@ export default function SectionsPage() {
                                                     }
                                                     className={
                                                         urlLicense === "pro"
-                                                            ? "cursor-pointer rounded-full border-neutral-800 bg-gradient-to-r from-purple-700 to-rose-600 text-sm text-white"
+                                                            ? "cursor-pointer rounded-full border-neutral-800 bg-linear-to-r from-purple-700 to-rose-600 text-sm text-white"
                                                             : "cursor-pointer rounded-full text-sm font-normal shadow-none transition-all duration-200 dark:border-neutral-800"
                                                     }
                                                 >
@@ -314,7 +316,7 @@ export default function SectionsPage() {
                                                     }
                                                     className={
                                                         urlLicense === "free"
-                                                            ? "cursor-pointer rounded-full border-neutral-800 bg-gradient-to-r from-violet-600 to-blue-700 text-sm text-white"
+                                                            ? "cursor-pointer rounded-full border-neutral-800 bg-linear-to-r from-violet-600 to-blue-700 text-sm text-white"
                                                             : "cursor-pointer rounded-full text-sm font-normal shadow-none transition-all duration-200 dark:border-neutral-800"
                                                     }
                                                 >
@@ -405,7 +407,7 @@ export default function SectionsPage() {
                                                 transition={{ duration: 0.6 }}
                                                 className="flex flex-col items-center justify-center py-20 text-center"
                                             >
-                                                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-purple-100">
+                                                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-r from-blue-100 to-purple-100">
                                                     <RiSearchLine className="h-10 w-10 text-blue-600" />
                                                 </div>
                                                 <h3 className="mb-3 text-xl font-semibold text-gray-900">
@@ -517,7 +519,7 @@ export default function SectionsPage() {
                                                                                         }
                                                                                     />
                                                                                 )}
-                                                                                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                                                                <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                                                                             </div>
 
                                                                             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 transition-all duration-300 ease-in group-hover:bottom-6 group-hover:opacity-100">
@@ -610,7 +612,7 @@ export default function SectionsPage() {
                                                                                     )}
                                                                                 </h3>
                                                                                 {section.pro && (
-                                                                                    <Badge className="rounded-full border-0 bg-gradient-to-r from-purple-700 to-pink-500 px-1.5 py-0.5 text-xs text-white">
+                                                                                    <Badge className="rounded-full border-0 bg-linear-to-r from-purple-700 to-pink-500 px-1.5 py-0.5 text-xs text-white">
                                                                                         Pro
                                                                                     </Badge>
                                                                                 )}

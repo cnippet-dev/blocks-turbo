@@ -6,6 +6,8 @@ import { useSessionCache } from "@/hooks/use-session-cache";
 
 interface ProStatusContextType {
     isPro: boolean;
+    isStarter: boolean;
+    plan: string | null;
     isLoading: boolean;
 }
 
@@ -21,6 +23,8 @@ export const ProStatusProvider = ({
     const { status: sessionStatus, data: session } = useSessionCache();
     const [proStatus, setProStatus] = useState<ProStatusContextType>({
         isPro: false,
+        isStarter: false,
+        plan: null,
         isLoading: true,
     });
 
@@ -29,10 +33,20 @@ export const ProStatusProvider = ({
         try {
             const response = await fetch("/api/pro");
             const data = await response.json();
-            setProStatus({ isPro: data.isPro, isLoading: false });
+            setProStatus({ 
+                isPro: data.isPro || false, 
+                isStarter: data.isStarter || false,
+                plan: data.plan || null,
+                isLoading: false 
+            });
         } catch (error) {
             console.error("Failed to fetch pro status", error);
-            setProStatus({ isPro: false, isLoading: false });
+            setProStatus({ 
+                isPro: false, 
+                isStarter: false,
+                plan: null,
+                isLoading: false 
+            });
         }
     }, []);
 
@@ -42,7 +56,12 @@ export const ProStatusProvider = ({
         }
 
         if (sessionStatus === "unauthenticated") {
-            setProStatus({ isPro: false, isLoading: false });
+            setProStatus({ 
+                isPro: false, 
+                isStarter: false,
+                plan: null,
+                isLoading: false 
+            });
             return;
         }
 

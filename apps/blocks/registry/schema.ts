@@ -77,6 +77,7 @@ export const registryItemSchema = z.object({
     slug: z.string().optional(),
     auth: z.boolean().optional(),
     pro: z.boolean().optional(),
+    starter: z.boolean().optional(),
     thumbnail: z.string().optional(),
     number: z.string().optional(),
     title: z.string().optional(),
