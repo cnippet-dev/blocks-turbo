@@ -216,11 +216,17 @@ export async function verifyPayment(
 
         const startDate = new Date();
         const endDate = new Date();
-        if (duration === "monthly") {
+        
+        // Handle lifetime subscriptions (Lifetime plan)
+        if (planId.toLowerCase() === "lifetime") {
+            // Set endDate to 10 years in the future for lifetime subscriptions
+            endDate.setFullYear(endDate.getFullYear() + 10);
+        } else if (duration === "monthly") {
             endDate.setMonth(endDate.getMonth() + 1);
         } else if (duration === "annual" || duration === "yearly") {
             endDate.setFullYear(endDate.getFullYear() + 1);
         } else {
+            // Default to 1 year if duration is not specified
             endDate.setFullYear(endDate.getFullYear() + 1);
         }
 
@@ -255,9 +261,13 @@ export async function verifyPayment(
             },
         });
 
+        // Update user pro status based on plan
+        // Free plan doesn't get pro access, all others do
+        const shouldHaveProAccess = planId.toLowerCase() !== "free";
+        
         await prisma.user.update({
             where: { id: userId },
-            data: { pro: true },
+            data: { pro: shouldHaveProAccess },
         });
 
         const user = await prisma.user.findUnique({

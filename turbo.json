@@ -28,6 +28,9 @@
     "db:generate": {
       "cache": false
     },
+    "docs":{
+      "cache":false
+    },
     "db:generate:prod": {
       "cache": false
     },

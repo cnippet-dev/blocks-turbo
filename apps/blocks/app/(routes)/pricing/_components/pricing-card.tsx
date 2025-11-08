@@ -46,14 +46,14 @@ export default function PricingCard({
                     </span>{" "}
                 </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-grow flex-col justify-between">
+            <CardContent className="flex grow flex-col justify-between">
                 <ul className="mb-6 space-y-2">
                     {plan.features.map((feature, index) => (
                         <li
                             key={index}
                             className="flex items-center text-gray-700 dark:text-gray-300"
                         >
-                            <CheckCircle2 className="mr-2 h-5 w-5 flex-shrink-0 text-green-500" />{" "}
+                            <CheckCircle2 className="mr-2 h-5 w-5 shrink-0 text-green-500" />{" "}
                             {feature}
                         </li>
                     ))}
