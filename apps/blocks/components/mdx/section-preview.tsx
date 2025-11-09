@@ -33,7 +33,9 @@ export function SectionPreview({ name }: SectionPreviewProps) {
         Record<number, string>
     >({});
     const [isLoadingCode, setIsLoadingCode] = React.useState<boolean>(false);
-    const SrcPath = Files[fileIndex]?.path;
+    const SrcPath = typeof Files[fileIndex] === "string" 
+        ? Files[fileIndex] 
+        : Files[fileIndex]?.path;
 
     const { isAuthenticated } = useSessionCache();
     const { isPro, isStarter, isLoading: isProLoading } = useProStatus();
@@ -150,9 +152,10 @@ export function SectionPreview({ name }: SectionPreviewProps) {
                 <div className="overflow-y-auto rounded-xl text-sm wrap-break-words">
                     {Files.length > 1 && (
                         <div className="flex items-center gap-2 border-b px-2 py-1">
-                            {Files.map((f: { path: string }, idx: number) => {
+                            {Files.map((f, idx: number) => {
+                                const filePath = typeof f === "string" ? f : f.path;
                                 const label =
-                                    f?.path?.split("/").pop() ??
+                                    filePath?.split("/").pop() ??
                                     `file-${idx + 1}`;
                                 const isActive = idx === fileIndex;
                                 return (

@@ -93,7 +93,7 @@ const components = {
     }: React.HTMLAttributes<HTMLTableCellElement>) => (
         <th
             className={cn(
-                "font-ins dark:border-dawn-600 border px-4 py-2 text-left font-medium [&[align=center]]:text-center [&[align=right]]:text-right",
+                "font-ins dark:border-dawn-600 border px-4 py-2 text-left font-medium [[align=center]]:text-center [[align=right]]:text-right",
                 className,
             )}
             {...props}
@@ -105,7 +105,7 @@ const components = {
     }: React.HTMLAttributes<HTMLTableCellElement>) => (
         <td
             className={cn(
-                "dark:border-dawn-600 border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+                "dark:border-dawn-600 border px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right",
                 className,
             )}
             {...props}
@@ -167,7 +167,7 @@ const components = {
         return (
             <>
                 <pre
-                    className={`overflow-x-auto rounded-lg border !bg-neutral-950 text-wrap dark:border-neutral-800 dark:!bg-zinc-900 ${className}`}
+                    className={`overflow-x-auto rounded-lg border bg-neutral-950! text-wrap dark:border-neutral-800 dark:bg-zinc-900! ${className}`}
                     {...props}
                 />
                 {__rawString__ && <CopyButton value={__rawString__} />}
