@@ -25,7 +25,7 @@ import { createFileTreeForRegistryItemFiles, FileTree } from "@/lib/registry"
 import { cn } from "@/lib/utils"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { getIconForLanguageExtension } from "@/components/icons"
-import { OpenInV0Button } from "@/components/open-in-v0-button"
+
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Collapsible,
@@ -225,7 +225,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
           <span>npx shadcn add {item.name}</span>
         </Button>
         <Separator orientation="vertical" className="mx-1 h-4!" />
-        <OpenInV0Button name={item.name} />
+        {/* <OpenInV0Button name={item.name} /> */}
       </div>
     </div>
   )
