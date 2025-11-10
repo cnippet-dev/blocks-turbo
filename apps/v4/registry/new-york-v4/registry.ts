@@ -3,11 +3,6 @@ import { z } from "zod"
 
 import { themes } from "../themes"
 import { blocks } from "./blocks/_registry"
-import { charts } from "./charts/_registry"
-import { examples } from "./examples/_registry"
-import { hooks } from "./hooks/_registry"
-import { internal } from "./internal/_registry"
-import { lib } from "./lib/_registry"
 import { ui } from "./ui/_registry"
 
 const DEPRECATED_ITEMS = [
@@ -44,12 +39,7 @@ export const registry = {
       },
       ...ui,
       ...blocks,
-      ...charts,
-      ...lib,
-      ...hooks,
       ...themes,
-      ...examples,
-      ...internal,
     ]
       .filter((item) => {
         return !DEPRECATED_ITEMS.includes(item.name)
