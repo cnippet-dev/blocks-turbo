@@ -33,6 +33,8 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/registry/new-york-v4/ui/tabs"
+import { BlockViewer } from "./components/block-viewer"
+import { BlockDisplay } from "./components/block-display"
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
@@ -339,6 +341,8 @@ export const mdxComponents = {
   CodeTabs,
   ComponentPreview,
   ComponentSource,
+  BlockViewer,
+  BlockDisplay,
   CodeCollapsibleWrapper,
   ComponentsList,
   DirectoryList,

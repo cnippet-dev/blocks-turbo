@@ -24,7 +24,7 @@ export default defineConfig({
 })
 
 export const docs = defineDocs({
-  dir: "content/docs",
+  dir: "content/blocks",
   // TODO: Fix this when we upgrade to zod v4.
   // docs: {
   //   schema: frontmatterSchema.extend({

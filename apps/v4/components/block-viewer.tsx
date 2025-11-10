@@ -153,7 +153,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
       </Tabs>
-      <Separator orientation="vertical" className="mx-2 !h-4" />
+      <Separator orientation="vertical" className="mx-2 h-4!" />
       <a
         href={`#${item.name}`}
         className="flex-1 text-center text-sm font-medium underline-offset-2 hover:underline md:flex-auto md:text-left"
@@ -171,7 +171,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
                 resizablePanelRef.current.resize(parseInt(value))
               }
             }}
-            className="gap-1 *:data-[slot=toggle-group-item]:!size-6 *:data-[slot=toggle-group-item]:!rounded-sm"
+            className="gap-1 *:data-[slot=toggle-group-item]:size-6! *:data-[slot=toggle-group-item]:rounded-sm!"
           >
             <ToggleGroupItem value="100" title="Desktop">
               <Monitor />
@@ -182,7 +182,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
             <ToggleGroupItem value="30" title="Mobile">
               <Smartphone />
             </ToggleGroupItem>
-            <Separator orientation="vertical" className="!h-4" />
+            <Separator orientation="vertical" className="h-4!" />
             <Button
               size="icon"
               variant="ghost"
@@ -195,7 +195,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
                 <Fullscreen />
               </Link>
             </Button>
-            <Separator orientation="vertical" className="!h-4" />
+            <Separator orientation="vertical" className="h-4!" />
             <Button
               size="icon"
               variant="ghost"
@@ -212,7 +212,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
             </Button>
           </ToggleGroup>
         </div>
-        <Separator orientation="vertical" className="mx-1 !h-4" />
+        <Separator orientation="vertical" className="mx-1 h-4!" />
         <Button
           variant="outline"
           className="w-fit gap-1 px-2 shadow-none"
@@ -224,7 +224,7 @@ function BlockViewerToolbar({ styleName }: { styleName: Style["name"] }) {
           {isCopied ? <Check /> : <Terminal />}
           <span>npx shadcn add {item.name}</span>
         </Button>
-        <Separator orientation="vertical" className="mx-1 !h-4" />
+        <Separator orientation="vertical" className="mx-1 h-4!" />
         <OpenInV0Button name={item.name} />
       </div>
     </div>
@@ -260,7 +260,7 @@ function BlockViewerView({ styleName }: { styleName: Style["name"] }) {
   return (
     <div className="hidden group-data-[view=code]/block-view-wrapper:hidden md:h-(--height) lg:flex">
       <div className="relative grid w-full gap-4">
-        <div className="absolute inset-0 right-4 [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] [background-size:20px_20px] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"></div>
+        <div className="absolute inset-0 right-4 bg-[radial-gradient(#d4d4d4_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#404040_1px,transparent_1px)]"></div>
         <ResizablePanelGroup
           direction="horizontal"
           className="after:bg-surface/50 relative z-10 after:absolute after:inset-0 after:right-3 after:z-0 after:rounded-xl"
@@ -273,7 +273,7 @@ function BlockViewerView({ styleName }: { styleName: Style["name"] }) {
           >
             <BlockViewerIframe styleName={styleName} />
           </ResizablePanel>
-          <ResizableHandle className="after:bg-border relative hidden w-3 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-8 after:w-[6px] after:translate-x-[-1px] after:-translate-y-1/2 after:rounded-full after:transition-all after:hover:h-10 md:block" />
+          <ResizableHandle className="after:bg-border relative hidden w-3 bg-transparent p-0 after:absolute after:top-1/2 after:right-0 after:h-8 after:w-[6px] after:-translate-x-px after:-translate-y-1/2 after:rounded-full after:transition-all after:hover:h-10 md:block" />
           <ResizablePanel defaultSize={0} minSize={0} />
         </ResizablePanelGroup>
       </div>
@@ -340,7 +340,7 @@ function BlockViewerCode() {
       </div>
       <figure
         data-rehype-pretty-code-figure=""
-        className="!mx-0 mt-0 flex min-w-0 flex-1 flex-col rounded-xl border-none"
+        className="mx-0! mt-0 flex min-w-0 flex-1 flex-col rounded-xl border-none"
       >
         <figcaption
           className="text-code-foreground [&_svg]:text-code-foreground flex h-12 shrink-0 items-center gap-2 border-b px-4 py-2 [&_svg]:size-4 [&_svg]:opacity-70"
@@ -370,7 +370,7 @@ export function BlockViewerFileTree() {
   }
 
   return (
-    <SidebarProvider className="flex !min-h-full flex-col border-r">
+    <SidebarProvider className="flex min-h-full! flex-col border-r">
       <Sidebar collapsible="none" className="w-full flex-1">
         <SidebarGroupLabel className="h-12 rounded-none border-b px-4 text-sm">
           Files
