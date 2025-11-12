@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Kantumruy_Pro } from "next/font/google"
 
 import "./globals.css"
 import AuthProvider from "@/providers/auth-provider"
 import ThemeProvider from "@/providers/theme-provider"
+import { Toaster as Sonner } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +15,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 })
+
+const kantumruy = Kantumruy_Pro({
+  variable: "--font-kantumruy",
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${kantumruy.variable} antialiased`}
       >
         <AuthProvider>
           <ThemeProvider
@@ -38,6 +45,8 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Sonner richColors expand={true} position="top-right" />
+
           </ThemeProvider>
         </AuthProvider> 
       </body>
