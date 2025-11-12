@@ -651,7 +651,7 @@ export default function SignUpForm() {
   )
 
   return (
-    <section className="font-kantumruy relative h-full py-5 md:py-10 w-full overflow-hidden">
+    <section className="font-kantumruy relative min-h-screen flex h-full w-full overflow-hidden py-5 md:py-10">
       {/* <DashedBorderAll /> */}
 
       <div className="m-auto flex h-full w-full max-w-6xl items-center justify-center px-4 md:px-0">
