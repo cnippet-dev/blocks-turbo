@@ -1,4 +1,11 @@
+"use client"
+import { usePathname } from "next/navigation"
+
+import { cn } from "@/lib/utils"
+
 export function DashedBorderWithTopDots() {
+  const pathname = usePathname()
+
   return (
     <div className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 flex w-full overflow-visible">
       <div
@@ -8,7 +15,12 @@ export function DashedBorderWithTopDots() {
       ></div>
 
       <div
-        className="absolute top-2 left-1/2 z-0 h-full w-full max-w-7xl flex-auto -translate-x-1/2 overflow-visible"
+         className={cn(
+          "absolute top-2 left-1/2 z-0 h-full w-full flex-auto -translate-x-1/2 overflow-visible px-10",
+          pathname.includes("/blocks") || pathname.includes("/pages")
+            ? "max-w-full xl:max-w-[97%]"
+            : "max-w-7xl"
+        )}
         data-framer-name="Vertical lines"
       >
         <div
@@ -78,10 +90,17 @@ export function DashedBorderWithTopDots2() {
   )
 }
 export function DashedBorder() {
+  const pathname = usePathname()
+
   return (
     <div className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 flex w-full overflow-visible">
       <div
-        className="absolute top-0 left-1/2 z-0 h-full w-full max-w-7xl flex-auto -translate-x-1/2 overflow-visible"
+        className={cn(
+          "absolute top-0 left-1/2 z-0 h-full w-full flex-auto -translate-x-1/2 overflow-visible px-10",
+          pathname.includes("/blocks") || pathname.includes("/pages")
+            ? "max-w-full xl:max-w-[97%]"
+            : "max-w-7xl"
+        )}
         data-framer-name="Vertical lines"
       >
         <div

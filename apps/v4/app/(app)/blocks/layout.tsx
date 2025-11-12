@@ -1,3 +1,6 @@
+import { DashedBorderWithTopDots } from "@/components/dashed-layout"
+import Navbar from "@/components/shared/navbar"
+
 export default function DocsLayout({
   children,
 }: {
@@ -5,7 +8,13 @@ export default function DocsLayout({
 }) {
   return (
     <div className="">
-      <div className="h-full w-full">{children}</div>
+      <Navbar />
+      <div className="relative h-full w-full">
+       
+
+        <DashedBorderWithTopDots />
+        {children}
+      </div>
     </div>
   )
 }

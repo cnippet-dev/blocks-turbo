@@ -61,6 +61,7 @@
 
   --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
   --animate-orbit-ring: orbit-ring calc(var(--duration) * 1s) linear infinite;
+
 }
 
 @keyframes orbit {
@@ -373,6 +374,7 @@
     font-size: 0.8rem;
   }
 }
+
 
 
 

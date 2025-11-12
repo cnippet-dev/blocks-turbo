@@ -47,7 +47,7 @@ export function ComponentPreviewTabs({
           <div
             data-align={align}
             className={cn(
-              "preview flex w-full justify-center rounded-lg border data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
+              "preview flex w-full justify-center rounded-none border-y data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
               chromeLessOnMobile ? "sm:p-10" : "h-full p-10"
             )}
           >

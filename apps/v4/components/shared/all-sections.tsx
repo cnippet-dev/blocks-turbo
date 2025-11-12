@@ -129,7 +129,7 @@ const Sections = forwardRef<HTMLDivElement, SectionsProps>(
 
                           <div className="flex flex-col items-start p-4">
                             <motion.a
-                              href={`/sections/${section.name}`}
+                              href={`/blocks/${section.name}`}
                               className="font-medium text-black/80 capitalize dark:text-white"
                               initial={{
                                 opacity: 0,
