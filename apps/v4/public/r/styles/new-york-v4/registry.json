@@ -797,6 +797,104 @@
       ]
     },
     {
+      "name": "banner-01",
+      "type": "registry:block",
+      "description": "A simple banner.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/banner-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "banner"
+      ]
+    },
+    {
+      "name": "blog-01",
+      "type": "registry:block",
+      "description": "A simple blog.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/blog-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "blog"
+      ]
+    },
+    {
+      "name": "blog-02",
+      "type": "registry:block",
+      "description": "A simple blog.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/blog-02.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "blog"
+      ]
+    },
+    {
+      "name": "blog-03",
+      "type": "registry:block",
+      "description": "A simple blog.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/blog-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "blog"
+      ]
+    },
+    {
+      "name": "blog-04",
+      "type": "registry:block",
+      "description": "A simple blog.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/blog-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "blog"
+      ]
+    },
+    {
+      "name": "blog-05",
+      "type": "registry:block",
+      "description": "A simple blog.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/blog-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "blog"
+      ]
+    },
+    {
+      "name": "blog-06",
+      "type": "registry:block",
+      "description": "A simple blog.",
+      "files": [
+        {
+          "path": "registry/new-york-v4/blocks/blog-06.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "blog"
+      ]
+    },
+    {
       "name": "dashboard-01",
       "type": "registry:block",
       "description": "A dashboard with sidebar, charts and data table.",

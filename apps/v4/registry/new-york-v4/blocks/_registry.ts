@@ -2,6 +2,91 @@ import { type Registry } from "shadcn/schema"
 
 export const blocks: Registry["items"] = [
   {
+    name: "banner-01",
+    description: "A simple banner.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/banner-01.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner"],
+  },
+  {
+    name: "blog-01",
+    description: "A simple blog.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/blog-01.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["blog"],
+  },
+  {
+    name: "blog-02",
+    description: "A simple blog.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/blog-02.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["blog"],
+  },
+  {
+    name: "blog-03",
+    description: "A simple blog.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/blog-03.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["blog"],
+  },
+  {
+    name: "blog-04",
+    description: "A simple blog.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/blog-04.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["blog"],
+  },
+  {
+    name: "blog-05",
+    description: "A simple blog.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/blog-05.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["blog"],
+  },
+  {
+    name: "blog-06",
+    description: "A simple blog.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/blog-06.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["blog"],
+  },
+
+  {
     name: "dashboard-01",
     type: "registry:block",
     description: "A dashboard with sidebar, charts and data table.",

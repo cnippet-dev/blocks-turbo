@@ -295,7 +295,7 @@ export const mdxComponents = {
   }: React.ComponentProps<typeof TabsList>) => (
     <TabsList
       className={cn(
-        "justify-start gap-4 rounded-none bg-transparent px-0",
+        "inline-flex h-8 items-center rounded-md p-1 *:data-[slot=tabs-trigger]:h-6 *:data-[slot=tabs-trigger]:rounded-sm *:data-[slot=tabs-trigger]:px-2 *:data-[slot=tabs-trigger]:text-xs",
         className
       )}
       {...props}
@@ -307,7 +307,6 @@ export const mdxComponents = {
   }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        "text-muted-foreground data-[state=active]:text-foreground data-[state=active]:border-primary dark:data-[state=active]:border-primary hover:text-primary rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 pb-3 text-base data-[state=active]:bg-transparent data-[state=active]:shadow-none dark:data-[state=active]:bg-transparent",
         className
       )}
       {...props}
