@@ -109,7 +109,7 @@ export default async function Page(props: {
   return (
     <>
       <div className="mx-auto flex w-full max-w-[95%] pt-4 text-[1.05rem] sm:text-[15px] xl:w-full">
-        <div className="w-10 border-r border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10" />
+        <div className="w-10 border-r border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10" />
         <div className="flex w-full min-w-0 flex-1 flex-col">
           <div className="h-(--top-spacing) shrink-0" />
           <div className="mx-auto flex w-full max-w-full min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
@@ -242,20 +242,7 @@ export default async function Page(props: {
             )}
           </div>
         </div>
-        <div className="w-10 border-l border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10" />
-
-        {/* <div className="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--footer-height)+2rem)] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
-        <div className="h-(--top-spacing) shrink-0" />
-        {doc.toc?.length ? (
-          <div className="no-scrollbar overflow-y-auto px-8">
-            <DocsTableOfContents toc={doc.toc} />
-            <div className="h-12" />
-          </div>
-        ) : null}
-        <div className="flex flex-1 flex-col gap-12 px-6">
-          <OpenInV0Cta />
-        </div>
-      </div> */}
+        <div className="w-10 border-l border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10" />
       </div>
     </>
   )

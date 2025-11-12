@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react"; // Note: I changed 'motion/react' to 'framer-motion' which is more common
-import { Button } from "@/components/ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import { motion } from "motion/react";
+
+import { Button } from "@/components/ui/button";
+
 import NavUser from "./nav-user";
 
 export default function NavClientContent() {
     return (
         <>
-            {/* Animated Navigation Links */}
             <div className="hidden items-center space-x-8 text-sm font-medium md:flex">
-                {["Sections", "Pages", "Templates", "Docs", "Pricing"].map(
+                {["Blocks", "Pages", "Templates", "Docs", "Pricing"].map(
                     (item, index) => (
                         <motion.div
                             key={item}
@@ -29,11 +30,10 @@ export default function NavClientContent() {
                                 {item}
                             </Link>
                         </motion.div>
-                    ),
+                    )
                 )}
             </div>
 
-            {/* Animated User Actions */}
             <motion.div
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
