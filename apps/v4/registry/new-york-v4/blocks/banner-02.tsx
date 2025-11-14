@@ -1,4 +1,4 @@
-"use client";
+    "use client";
 
 import { useState } from "react";
 import { Sparkles, X } from "lucide-react";
@@ -27,7 +27,7 @@ export default function Banner02() {
             >
                 <Sparkles className="h-5 w-5 shrink-0 text-gray-700" />
 
-                <div className="min-w-0 flex-1">
+                    <div className="min-w-0 flex-1">
                     <p className="text-sm text-gray-900">
                         <span className="font-semibold">
                             We&apos;ve just announced our Series A1
@@ -41,7 +41,7 @@ export default function Banner02() {
                 <Button
                     variant="secondary"
                     size="sm"
-                    className="shrink-0 bg-black text-white hover:bg-black/80"
+                    className="shrink-0 bg-black text-white hidden lg:block hover:bg-black/80"
                 >
                     Read update
                 </Button>
