@@ -11,7 +11,7 @@ const Sections = dynamic(() => import("@/components/shared/all-sections"))
 // const Pages = dynamic(() => import("@/components/shared/all-pages"))
 
 const SlidingImages = dynamic(() => import("@/components/routes/home/sliding"))
-
+const Banner01 = dynamic(() => import("@/registry/new-york-v4/blocks/banner-05"))
 const CursorPointer = dynamic(() => import("@/components/cursor-pointer"))
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <ReactLenis root>
       <div className="">
-        <CursorPointer
+        {/* <CursorPointer
           targets={[
             { id: "hero", ref: heroRef }, 
             { id: "components", ref: componentsRef },
@@ -32,10 +32,13 @@ export default function Home() {
         <main className="dark:bg-background">
           <Hero ref={heroRef} />
           <Sections ref={componentsRef} count={15} />
-          {/* <Pages /> */}
           <SlidingImages />
         </main>
-        <Footer />
+        <Footer /> */}
+
+
+        <Banner01 />
+        <Footer/>
       </div>
     </ReactLenis>
   )

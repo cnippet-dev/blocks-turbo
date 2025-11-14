@@ -28,7 +28,7 @@
     "db:generate": {
       "cache": false
     },
-    "docs":{
+    "registry:build":{
       "cache":false
     },
     "db:generate:prod": {

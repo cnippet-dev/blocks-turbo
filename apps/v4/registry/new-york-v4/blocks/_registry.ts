@@ -14,6 +14,54 @@ export const blocks: Registry["items"] = [
     categories: ["banner"],
   },
   {
+    name: "banner-02",
+    description: "A simple banner.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/banner-02.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner"],
+  },
+  {
+    name: "banner-03",
+    description: "A simple banner.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/banner-03.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner"],
+  },
+  {
+    name: "banner-04",
+    description: "A simple banner.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/banner-04.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner"],
+  },
+  {
+    name: "banner-05",
+    description: "A simple banner.",
+    type: "registry:block",
+    files: [
+      {
+        path: "blocks/banner-05.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["banner"],
+  },
+  {
     name: "blog-01",
     description: "A simple blog.",
     type: "registry:block",

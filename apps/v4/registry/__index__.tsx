@@ -997,6 +997,78 @@ export const Index: Record<string, Record<string, any>> = {
       categories: ["banner"],
       meta: undefined,
     },
+    "banner-02": {
+      name: "banner-02",
+      description: "A simple banner.",
+      type: "registry:block",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york-v4/blocks/banner-02.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      component: React.lazy(async () => {
+        const mod = await import("@/registry/new-york-v4/blocks/banner-02.tsx")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+        return { default: mod.default || mod[exportName] }
+      }),
+      categories: ["banner"],
+      meta: undefined,
+    },
+    "banner-03": {
+      name: "banner-03",
+      description: "A simple banner.",
+      type: "registry:block",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york-v4/blocks/banner-03.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      component: React.lazy(async () => {
+        const mod = await import("@/registry/new-york-v4/blocks/banner-03.tsx")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+        return { default: mod.default || mod[exportName] }
+      }),
+      categories: ["banner"],
+      meta: undefined,
+    },
+    "banner-04": {
+      name: "banner-04",
+      description: "A simple banner.",
+      type: "registry:block",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york-v4/blocks/banner-04.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      component: React.lazy(async () => {
+        const mod = await import("@/registry/new-york-v4/blocks/banner-04.tsx")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+        return { default: mod.default || mod[exportName] }
+      }),
+      categories: ["banner"],
+      meta: undefined,
+    },
+    "banner-05": {
+      name: "banner-05",
+      description: "A simple banner.",
+      type: "registry:block",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york-v4/blocks/banner-05.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      component: React.lazy(async () => {
+        const mod = await import("@/registry/new-york-v4/blocks/banner-05.tsx")
+        const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+        return { default: mod.default || mod[exportName] }
+      }),
+      categories: ["banner"],
+      meta: undefined,
+    },
     "blog-01": {
       name: "blog-01",
       description: "A simple blog.",
