@@ -1,10 +1,10 @@
 import * as React from "react";
 import { notFound } from "next/navigation";
 
-import { getRegistryComponent, getRegistryItem } from "@/lib/registry";
+import { getRegistryItem } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { type Style } from "@/registry/styles";
-import { ResizableViewer } from "@/components/resizable-viewer";
+import { PreviewScreenShift } from "../_components/preview-screen-shift";
 
 export const revalidate = false;
 export const dynamic = "force-dynamic";
@@ -25,18 +25,17 @@ const PreviewPage = async ({
 
     try {
         const item = await getCachedRegistryItem(slug, "new-york-v4");
-        const Component = getRegistryComponent(slug, "new-york-v4");
 
-        if (!item || !Component) {
+        if (!item) {
             return notFound();
         }
 
         return (
-            <ResizableViewer
+            <PreviewScreenShift
+                name={item.name}
                 containerClassName={cn("bg-background", item.meta?.container)}
-            >
-                <Component />
-            </ResizableViewer>
+                iframeHeight={item.meta?.iframeHeight ?? "930px"}
+            />
         );
     } catch (error) {
         console.error("Preview loading failed:", error);

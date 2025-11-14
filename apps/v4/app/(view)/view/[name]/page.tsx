@@ -5,8 +5,7 @@ import { notFound } from "next/navigation";
 
 import { siteConfig } from "@/lib/config";
 import { getRegistryComponent, getRegistryItem } from "@/lib/registry";
-import { absoluteUrl, cn } from "@/lib/utils";
-import { ResizableViewer } from "@/components/resizable-viewer";
+import { absoluteUrl } from "@/lib/utils";
 import { STYLES, type Style } from "@/registry/styles";
 
 export const revalidate = false;
