@@ -243,7 +243,7 @@ function BlockViewerIframe({
   return (
     <iframe
       key={iframeKey}
-      src={`/view/${styleName}/${item.name}`}
+      src={`/view/${item.name}`}
       height={item.meta?.iframeHeight ?? 930}
       loading="lazy"
       className={cn(

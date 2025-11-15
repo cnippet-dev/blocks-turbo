@@ -75,6 +75,7 @@ export function ComponentPreview({
         />
       }
       chromeLessOnMobile={chromeLessOnMobile}
+      name={name}
       {...props}
     />
   )

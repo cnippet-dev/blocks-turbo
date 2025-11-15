@@ -323,7 +323,7 @@ export const Slider: React.FC<SliderProps> = ({
     }, [addImgToSlider]);
 
     return (
-        <div className={cn("min-w-0 flex-shrink-0 flex-grow-0", className)}>
+        <div className={cn("min-w-0 shrink-0 grow-0", className)}>
             {isScale ? (
                 <>
                     <div className="slider_content">{children}</div>
@@ -385,7 +385,7 @@ export const SliderProgress = ({ className }: { className?: string }) => {
             )}
         >
             <div
-                className="absolute top-0 bottom-0 -left-[100%] w-full bg-black dark:bg-white"
+                className="absolute top-0 bottom-0 -left-full w-full bg-black dark:bg-white"
                 style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
             />
         </div>
@@ -455,7 +455,7 @@ export const SliderDotButton = ({
                                         }}
                                         layoutId={`hover-${carouselId}`}
                                         className={cn(
-                                            "absolute top-0 left-0 z-[3] h-full w-full rounded-full bg-black dark:bg-white",
+                                            "absolute top-0 left-0 z-3 h-full w-full rounded-full bg-black dark:bg-white",
                                             activeclass,
                                         )}
                                     />
